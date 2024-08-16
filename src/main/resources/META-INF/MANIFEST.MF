@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Implementation-Title: flaac3-colorful-printer
+Implementation-Vendor: flaac3.org
+Implementation-Version: 1.0.0
