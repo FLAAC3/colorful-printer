@@ -491,7 +491,7 @@ public class Selector {
             }
         });
         return printer.select(printer.ThisOne(), editor -> editor.replaceAll(".{2}$", ""))
-                .append(null, '}').toString();
+                .append(null, '}').toColorString();
     }
 
     /**
