@@ -84,14 +84,21 @@ public class Text {
         setNeedReset(previousText);
     }
 
-    @Override
-    public String toString() {
+    /**
+     * 带颜色转义的字符串
+     * */
+    public String toColorString() {
         var s = new StringBuilder();
         if (needReset) s.append(TextColors.ResetStr);
         if (backGroundColor != null) s.append(TextColors.getBackGroundColorStr(backGroundColor));
         if (textColor != null) s.append(TextColors.getTextColorStr(textColor));
         if (textStr != null) s.append(textStr); else s.append("null");
         return s.toString();
+    }
+
+    @Override
+    public String toString() {
+        return textStr;
     }
 
     /**
