@@ -51,8 +51,7 @@ public class Printer {
      * 一系列打印方法
      * */
     public Printer print (boolean resetAtEnd) {
-        textResource.forEach(System.out::print);
-        if (resetAtEnd) System.out.print(TextColors.ResetStr);
+        System.out.print(toColorString(resetAtEnd));
         return this;
     }
     public Printer print () {
@@ -397,6 +396,18 @@ public class Printer {
      * */
     public Printer clear () {
         textResource.clear(); index = 0; return this;
+    }
+
+    /**
+     * 带颜色的字符串
+     * */
+    public String toColorString (boolean resetAtEnd) {
+        List<String> stringList = textResource.stream().map(Text::toColorString).collect(Collectors.toList());
+        if (resetAtEnd) stringList.add(TextColors.ResetStr);
+        return String.join("", stringList);
+    }
+    public String toColorString () {
+        return toColorString(true);
     }
 
     @Override
